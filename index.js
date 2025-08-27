@@ -154,7 +154,6 @@ module.exports = {
 		reader = SmartBuffer.fromBuffer(buffer);
 		bytecode = reader.toString();
 		options = { verboseInstr: opts.verboseInstr ? true : false }
-		console.log(options)
 		return parsePrototype(reader, parseHeader(reader, bytecode))
 	}
 }

@@ -1,6 +1,6 @@
 {
   "name": "luascript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lua binary reader written in JavaScript",
   "license": "MIT",
   "author": "xbcq",
