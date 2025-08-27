@@ -1,0 +1,25 @@
+{
+  "name": "luascript",
+  "version": "1.0.0",
+  "description": "Lua binary reader written in JavaScript",
+  "license": "MIT",
+  "author": "xbcq",
+  "type": "commonjs",
+  "main": "./index.js",
+  "files": ["index.js", "reader/", "opcodes/"],
+  "keywords": ["lua", "bytecode", "luac", "parser"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xbcq1490/LuaJs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xbcq1490/LuaJs/issues"
+  },
+  "homepage": "https://github.com/xbcq1490/LuaJs#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "smart-buffer": "^4.2.0"
+  }
+}
