@@ -92,9 +92,10 @@ function parsePrototype(reader, sizeT) {
 				instr: reader.readUInt32LE(),
 			};
 			instruction.opcode = instruction.instr % 64;
-			instruction.instructionType = opcodes.instructionTypes[instruction.opcode];
+			instruction.instructionType =
+				opcodes.instructionTypes[instruction.opcode];
 			instruction.opcodeName = opcodes.opcodeNames[instruction.opcode];
-			proto.instructions[i] = instruction
+			proto.instructions[i] = instruction;
 		} else {
 			// you like being simple.. do you?
 			proto.instructions[i] = reader.readUInt32LE();
@@ -104,7 +105,7 @@ function parsePrototype(reader, sizeT) {
 	// Constants
 
 	const constantSize = reader.readUInt32LE();
-	proto.constants = []
+	proto.constants = [];
 
 	for (let i = 0; i < constantSize; i++) {
 		const constantType = reader.readUInt8();
@@ -120,40 +121,46 @@ function parsePrototype(reader, sizeT) {
 	}
 
 	// Prototypes
-	
+
 	const protoSize = reader.readUInt32LE();
 
-	proto.prototypes = []
+	proto.prototypes = [];
 
 	for (let i = 0; i < protoSize; i++) {
-		top = 0
-		proto.prototypes.push(parsePrototype(reader))
+		top = 0;
+		proto.prototypes.push(parsePrototype(reader));
 	}
-	
+
 	const lineInfoSize = reader.readUInt32LE();
 
-	reader.readOffset += (lineInfoSize * 4)
-	
+	reader.readOffset += lineInfoSize * 4;
+
 	const locVarSize = reader.readUInt32LE();
 	for (let i = 0; i < locVarSize; i++) {
-		readLuaString(reader, sizeT)
+		readLuaString(reader, sizeT);
 		reader.readUInt32LE();
 		reader.readUInt32LE();
 	}
 
-	const upvalNameSize = reader.readUInt32LE()
+	const upvalNameSize = reader.readUInt32LE();
 	for (let i = 0; i < upvalNameSize; i++) {
-		readLuaString(reader, sizeT)
+		readLuaString(reader, sizeT);
 	}
-	
+
 	return proto;
 }
 
 module.exports = {
-	parse: function(buffer, opts) {
+	/**
+	 * Parses a Lua 5.1 binary into a readable chunk
+	 * @param {Buffer} buffer - The Lua binary buffer
+	 * @param {Array} - Options (verboseInstr)
+	 * @returns {Object} - Returns the chunk tree
+	 */
+	parse: function (buffer, opts) {
 		reader = SmartBuffer.fromBuffer(buffer);
 		bytecode = reader.toString();
-		options = { verboseInstr: opts.verboseInstr ? true : false }
-		return parsePrototype(reader, parseHeader(reader, bytecode))
-	}
-}
+		options = { verboseInstr: opts.verboseInstr ? true : false };
+		return parsePrototype(reader, parseHeader(reader, bytecode));
+	},
+};

@@ -1,5 +1,5 @@
 {
-  "name": "luascript",
+  "name": "@xbcq1490/luajs",
   "version": "1.0.1",
   "description": "Lua binary reader written in JavaScript",
   "license": "MIT",
