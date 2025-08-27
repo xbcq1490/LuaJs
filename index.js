@@ -128,7 +128,7 @@ function parsePrototype(reader, sizeT) {
 
 	for (let i = 0; i < protoSize; i++) {
 		top = 0;
-		proto.prototypes.push(parsePrototype(reader));
+		proto.prototypes.push(parsePrototype(reader, sizeT));
 	}
 
 	const lineInfoSize = reader.readUInt32LE();
