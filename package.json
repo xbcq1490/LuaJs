@@ -1,6 +1,6 @@
 {
   "name": "@xbcq1490/luajs",
-  "version": "1.1.0",
+  "version": "1.0.2",
   "description": "Lua binary reader written in JavaScript",
   "license": "MIT",
   "author": "xbcq",
