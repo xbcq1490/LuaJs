@@ -1,13 +1,22 @@
 {
   "name": "@xbcq1490/luajs",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Lua binary reader written in JavaScript",
   "license": "MIT",
   "author": "xbcq",
   "type": "commonjs",
   "main": "./index.js",
-  "files": ["index.js", "reader/", "opcodes/"],
-  "keywords": ["lua", "bytecode", "luac", "parser"],
+  "files": [
+    "index.js",
+    "reader/",
+    "opcodes/"
+  ],
+  "keywords": [
+    "lua",
+    "bytecode",
+    "luac",
+    "parser"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/xbcq1490/LuaJs.git"
