@@ -74,6 +74,7 @@ function parsePrototype(reader, sizeT) {
 	const proto = {};
 	if (top == 1) proto.byteString = bytecode;
 	proto.sourceName = readLuaString(reader, sizeT);
+	proto.size_t_size = sizeT
 	proto.lineDefined = reader.readUInt32LE();
 	proto.lastLineDefined = reader.readUInt32LE();
 	proto.numUpvalues = reader.readUInt8();
